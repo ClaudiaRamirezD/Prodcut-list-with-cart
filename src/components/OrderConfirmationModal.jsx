@@ -41,9 +41,11 @@ function OrderConfirmationModal({ cart, total, onClose, onReset }) {
                     </div>
                 </div>
                 <button className="start-order btn-confirm" onClick={() => {
-                        onReset();
-                        onClose();
-                    }}>
+                    onReset();
+                    onClose();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                >
                         Start New Order
                 </button>
             </div>
