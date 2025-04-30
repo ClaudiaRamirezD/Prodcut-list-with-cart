@@ -24,7 +24,11 @@ function ProductCard({ product, onAddToCart, onRemoveFromCart, quantity }) {
             <picture>
                 <source media="(min-width: 1024px)" srcSet={getImage(product.image.desktop)} />
                 <source media="(min-width: 768px)" srcSet={getImage(product.image.tablet)} />
-                <img src={getImage(product.image.mobile)} alt={product.name} className="product-image" />
+                <img
+                    src={getImage(product.image.mobile)}
+                    alt={product.name}
+                    className={`product-image ${quantity > 0 ? 'product-in-cart' : ''}`}
+                />
 
 
                 {quantity === 0 ? (
