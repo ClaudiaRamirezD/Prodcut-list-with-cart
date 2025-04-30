@@ -167,6 +167,8 @@ picture {
 }
 
 .cart-info{
+    flex: 1; /* toma todo el espacio disponible entre img y final-total */
+    min-width: 0; /* necesario para que text-overflow funcione bien */
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -263,8 +265,10 @@ picture {
     z-index: 1000;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 6rem;
+    align-items: flex-start; /* mejor que padding-top si usas scroll */
+    overflow-y: auto; /* permite scroll */
+    box-sizing: border-box;
+    padding-top: 4rem;
 }
 
 .modal {
@@ -275,7 +279,7 @@ picture {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-height: 90vh; 
+    max-height: 95vh; /* evita que se desborde verticalmente */
     overflow-y: auto;
 }
 
@@ -285,6 +289,11 @@ picture {
     font-weight: bold;
     width: 60%;
 
+}
+
+.modal svg {
+    align-self: start;
+    flex-shrink: 0;
 }
 
 .enjoy{
@@ -309,6 +318,12 @@ picture {
     align-items: center;
     padding-block: 2rem;
     border-bottom: 1px solid var(--rose-300);
+    gap: 1rem;
+}
+
+.summary-item .final-total{
+    font-size: 1rem;
+
 }
 
 .modal-total {
@@ -336,7 +351,10 @@ picture {
 .name-confirmation{
     font-weight: bold;
     color: var(--rose-900);
-    font-size: 1.2rem;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .qty-confirmation{
@@ -347,22 +365,19 @@ picture {
 
 .img-conf{
     border-radius: .5rem;
-    width: 5rem;
+    width: 4rem;
 }
 
 .modal-total .p-total{
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 600;
 
 }
 
 .modal-total .final-total{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
-.summary-item .cart-info{
-    padding-inline: 1rem;
-}
 @media (max-width: 900px) {
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
