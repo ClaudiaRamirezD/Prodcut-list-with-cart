@@ -9,16 +9,14 @@ function getImage(path) {
   return images[`../assets/images/${path}`];
 }
 
-function ProductCard({ product, onAddToCart }) {
-    const [quantity, setQuantity] = useState(0);
+function ProductCard({ product, onAddToCart, onRemoveFromCart, quantity }) {
 
     const handleAdd = () => {
-        setQuantity(prev => prev + 1);
         onAddToCart(product);
     };
     
     const handleRemove = () => {
-        if (quantity > 0) setQuantity(prev => prev - 1);
+        onRemoveFromCart(product.id);
     };
 
     return (
