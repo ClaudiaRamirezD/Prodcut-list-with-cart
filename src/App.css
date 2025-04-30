@@ -275,7 +275,7 @@ picture {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    max-height: 100vh; 
+    max-height: 90vh; 
     overflow-y: auto;
 }
 
