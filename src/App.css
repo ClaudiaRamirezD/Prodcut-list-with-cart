@@ -275,6 +275,8 @@ picture {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    max-height: 100vh; 
+    overflow-y: auto;
 }
 
 .modal h2 {
