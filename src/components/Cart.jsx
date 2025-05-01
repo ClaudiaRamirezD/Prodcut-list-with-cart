@@ -1,6 +1,6 @@
 import { useState } from "react";
 import OrderConfirmationModal from "./OrderConfirmationModal";
-function Cart({ cart, total, totalItems, onRemoveFromCart }) {
+function Cart({ cart, total, totalItems, onRemoveFromCart, clearCart }) {
     const [isConfirmed, setIsConfirmed] = useState(false);
 
     return (
@@ -50,9 +50,12 @@ function Cart({ cart, total, totalItems, onRemoveFromCart }) {
                             <p>This is a <span>carbon-neutral</span> delivery</p>
                         </div>
 
-                        <button className='btn-confirm' onClick={() => setIsConfirmed(true)}>
-                            Confirm Order
-                        </button>
+                        {cart.length > 0 && (
+                            <button className="btn-confirm" onClick={() => setIsConfirmed(true)}>
+                                Confirm Order
+                            </button>
+                        )}
+
                     </>
             )}
             {isConfirmed && (
@@ -60,10 +63,7 @@ function Cart({ cart, total, totalItems, onRemoveFromCart }) {
                     cart={cart}
                     total={total}
                     onClose={() => setIsConfirmed(false)}
-                    onReset={() => {
-                    // vaciar carrito y reiniciar cantidad
-                    cart.forEach(item => onRemoveFromCart(item.id)); // o puedes usar una función `resetCart()`
-                    }}
+                    onReset={clearCart}
                 />
             )}
         </section>

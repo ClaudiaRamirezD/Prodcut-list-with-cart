@@ -41,12 +41,17 @@ export default function useCart() {
         return cart.reduce((sum, item) => sum + item.quantity, 0);
     }, [cart]);
 
+    const clearCart = () => {
+        setCart([]);
+    };
+
     return {
         cart,
         groupedCart,
         total,
         totalItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        clearCart,
     };
 }
