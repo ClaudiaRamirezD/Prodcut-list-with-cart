@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 const images = import.meta.glob('../assets/images/*.{jpg,jpeg,png}', {
     eager: true,
     import: 'default',
@@ -8,6 +10,13 @@ function getImage(path) {
 }
 
 function OrderConfirmationModal({ cart, total, onClose, onReset }) {
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, []);
+
     return (
         <div className="modal-backdrop">
             <div className="modal" role="dialog" aria-modal="true">
