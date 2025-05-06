@@ -27,7 +27,7 @@ body {
 
 .main-layout {
     padding: 2rem 1rem;
-    background-color: var(--rose-100);
+    background-color: var(--rose-50);
     display: flex;
     flex-direction: column;
 }
@@ -81,6 +81,11 @@ picture {
     display: block; 
 }
 
+button {
+    font-family: inherit; /* Hereda la fuente del elemento padre */
+    cursor: pointer; /* Opcional: para mantener el cursor de botón */
+}
+
 .btn-add, .btn-quantity {
     position: absolute;
     left: 50%;
@@ -89,7 +94,7 @@ picture {
 
     padding: .5rem 1rem;
     font-weight: bold;
-    border: 1px solid var(--rose-900);
+    border: 1px solid var(--rose-500);
     border-radius: 2rem;
     display: flex;
     gap: 1rem;
@@ -149,7 +154,7 @@ picture {
 }
 
 .cart {
-    background-color: var(--rose-50);
+    background-color: white;
     padding: 2rem;
     border-radius: .5rem;
     display: flex;
@@ -190,13 +195,13 @@ picture {
 }
 
 .item-price, .p-total{
-    color: var(--rose-500);
+    color: var(--rose-400);
 }
 
 
 .item-total{
-    color: var(--rose-900);
-    font-weight: 600;
+    color: var(--rose-500);
+    font-weight: 500;
 }
 
 .final-total{
